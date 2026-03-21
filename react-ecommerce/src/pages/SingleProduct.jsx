@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
-// Mock data to find the product (matches your ProductList data)
 const products = [
   {
     id: 1,
@@ -84,58 +84,149 @@ const products = [
 
 const SingleProduct = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { addToCart } = useContext(CartContext); // Access cart function
+
   const product = products.find((p) => p.id === parseInt(id));
 
   useEffect(() => {
     if (product) {
-      const history = JSON.parse(localStorage.getItem("recentlyViewed")) || [];
-
-      
+      const history = JSON.parse(localStorage.getItem("recently_viewed")) || [];
       const filtered = history.filter((item) => item.id !== product.id);
-      const newHistory = [product, ...filtered].slice(0, 5); // Keep top 5
-
-      localStorage.setItem("recentlyViewed", JSON.stringify(newHistory));
+      const newHistory = [product, ...filtered].slice(0, 5);
+      localStorage.setItem("recently_viewed", JSON.stringify(newHistory));
     }
   }, [product]);
 
-  if (!product)
-    return <div className="container py-5 text-center">Product not found.</div>;
+  const handleAddToCart = () => {
+    if (product) {
+      addToCart(product);
+      alert(`${product.name} added to cart!`);
+    }
+  };
 
-  return (
-    <div className="container py-5">
-      <Link to="/" className="btn btn-outline-secondary mb-4">
-        ← Back to Store
-      </Link>
-      <div className="row">
-        <div className="col-md-6 mb-4">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="img-fluid rounded shadow"
-          />
-        </div>
-        <div className="col-md-6">
-          <span className="badge bg-primary mb-2">{product.category}</span>
-          <h1 className="fw-bold">{product.name}</h1>
-          <div className="d-flex align-items-center mb-3 text-warning">
-            {[...Array(5)].map((_, i) => (
-              <i
-                key={i}
-                className={`fa${i < product.rating ? "s" : "r"} fa-star`}
-              ></i>
-            ))}
-          </div>
-          <p className="lead text-muted">{product.description}</p>
-          <h2 className="text-danger fw-bold">
-            ₱{product.price.toLocaleString()}
-          </h2>
-          <p className="text-muted text-decoration-line-through">
-            ₱{product.oldPrice.toLocaleString()}
-          </p>
-          <button className="btn btn-dark btn-lg px-5 mt-3">Add to Cart</button>
+  if (!product)
+    return (
+      <div className="container py-5 text-center">
+        <div
+          style={{
+            minHeight: "100vh",
+            backgroundColor: "#f5f5f5",
+            paddingTop: "60px",
+          }}
+        >
+          Product not found.
         </div>
       </div>
-    </div>
+    );
+
+  const darkBg = "#1e122b";
+
+  return (
+    <>
+      {/* 1. Top Separator Bar */}
+      <div
+        style={{ backgroundColor: darkBg, height: "10px", width: "100%" }}
+      ></div>
+
+      {/* 2. Mobile Header */}
+      <div
+        className="d-lg-none"
+        style={{
+          backgroundColor: darkBg,
+          padding: "0.8rem 1rem",
+          textAlign: "center",
+          borderBottom: "1px solid rgba(255,255,255,0.1)",
+        }}
+      >
+        <div className="d-flex align-items-center justify-content-center gap-2">
+          <img
+            src="/images/pclogo.png"
+            alt="Logo"
+            width="32"
+            height="32"
+            className="object-fit-contain"
+          />
+          <span
+            style={{ color: "#ffffff", fontSize: "1.1rem", fontWeight: "700" }}
+          >
+            Fifty-Glaze
+          </span>
+        </div>
+      </div>
+
+      {/* 3. Main Content Wrapper */}
+      <div
+        style={{
+          backgroundColor: "#f5f5f5",
+          minHeight: "100vh",
+          paddingBottom: "6rem",
+        }}
+      >
+        <div className="container py-5">
+          <Link to="/products" className="btn btn-outline-secondary mb-4">
+            ← Back to Products
+          </Link>
+
+          <div className="card border-0 shadow-lg rounded-4 overflow-hidden bg-white">
+            <div className="row g-0">
+              <div className="col-md-6">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="img-fluid w-100 h-100 object-fit-cover"
+                  style={{ minHeight: "400px" }}
+                />
+              </div>
+              <div className="col-md-6 p-4 p-md-5 d-flex flex-column justify-content-center">
+                <span className="badge bg-primary mb-2 w-fit">
+                  {product.category}
+                </span>
+                <h1 className="fw-bold mb-3">{product.name}</h1>
+
+                <div className="d-flex align-items-center mb-3 text-warning">
+                  {[...Array(5)].map((_, i) => (
+                    <i
+                      key={i}
+                      className={`fa${i < product.rating ? "s" : "r"} fa-star`}
+                    ></i>
+                  ))}
+                  <span className="text-muted ms-2 small">
+                    ({product.rating}.0)
+                  </span>
+                </div>
+
+                <p className="lead text-muted mb-4">{product.description}</p>
+
+                <div className="mb-4">
+                  <h2 className="text-danger fw-bold mb-1">
+                    ₱{product.price.toLocaleString()}
+                  </h2>
+                  <p className="text-muted text-decoration-line-through small">
+                    ₱{product.oldPrice.toLocaleString()}
+                  </p>
+                </div>
+
+                <div className="d-grid gap-2">
+                  <button
+                    onClick={handleAddToCart}
+                    className="btn btn-dark btn-lg px-5"
+                  >
+                    Add to Cart 🛒
+                  </button>
+                  <Link
+                    to="/checkout"
+                    className="btn btn-outline-success btn-lg"
+                  >
+                    Buy Now
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

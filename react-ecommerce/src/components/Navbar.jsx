@@ -19,12 +19,13 @@ const Navbar = () => {
             className="navbar-brand d-flex align-items-center fw-bold"
             to="/"
           >
+            {/* UPDATED: Slightly larger logo for better visibility */}
             <img
               src="/images/pclogo.png"
               alt="Logo"
-              width="80"
-              height="50"
-              className="me-2"
+              width="90"
+              height="60"
+              className="me-2 object-fit-contain"
             />
             <span>Fifty-Glaze</span>
           </Link>
@@ -73,7 +74,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* MOBILE BOTTOM NAVIGATION - GRAY ACTIVE STATE [cite: 153-231] */}
+      {/* MOBILE BOTTOM NAVIGATION */}
       <nav
         className="navbar fixed-bottom d-lg-none shadow-lg"
         style={{
@@ -107,7 +108,7 @@ const Navbar = () => {
           >
             <div>
               <i className="fa fa-th-large fs-5"></i>
-              <div style={{ fontSize: "12px" }}>Shop</div>
+              <div style={{ fontSize: "12px" }}>Products</div>
             </div>
           </NavLink>
 
@@ -158,6 +159,20 @@ const Navbar = () => {
             <div>
               <i className="fa fa-phone fs-5"></i>
               <div style={{ fontSize: "12px" }}>Contact</div>
+            </div>
+          </NavLink>
+
+          <NavLink
+            to="/policies"
+            className={({ isActive }) =>
+              isActive
+                ? "text-secondary text-decoration-none"
+                : "text-white text-decoration-none"
+            }
+          >
+            <div>
+              <i className="fa fa-file-contract fs-5"></i>
+              <div style={{ fontSize: "12px" }}>Policies</div>
             </div>
           </NavLink>
         </div>
