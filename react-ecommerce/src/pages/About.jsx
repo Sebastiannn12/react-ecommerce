@@ -44,14 +44,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* 3. Main Content Wrapper */}
-      <div
-        style={{
-          backgroundColor: "#f5f5f5",
-          minHeight: "100vh",
-          paddingBottom: "6rem",
-        }}
-      >
         <div className="container mt-5 pb-5">
           <div className="row align-items-center">
             <div className="col-lg-7">
@@ -118,7 +110,6 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };

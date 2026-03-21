@@ -100,15 +100,6 @@ const ProductList = () => {
         </div>
       </div>
 
-      {/* 3. Main Content Wrapper */}
-      <div
-        style={{
-          backgroundColor: "#f5f5f5",
-          minHeight: "100vh",
-          paddingBottom: "6rem",
-        }}
-        className="py-4"
-      >
         <div className="container pb-5">
           <div className="row mb-5 g-3">
             <div className="col-md-8 px-3">
@@ -256,7 +247,6 @@ const ProductList = () => {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };

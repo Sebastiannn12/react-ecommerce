@@ -88,15 +88,6 @@ const Home = () => {
           </span>
         </div>
       </div>
-
-      {/* 3. Main Content Wrapper (Light Gray Background, Full Height) */}
-      <div
-        style={{
-          backgroundColor: "#f5f5f5",
-          minHeight: "100vh",
-          paddingBottom: "6rem",
-        }}
-      >
         <div className="container mt-4">
           {/* Carousel Section */}
           <div
@@ -205,7 +196,6 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </div>
     </>
   );
 };

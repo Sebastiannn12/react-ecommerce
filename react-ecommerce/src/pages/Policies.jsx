@@ -85,12 +85,6 @@ const Policies = () => {
         </div>
       </div>
 
-      {/* 3. Main Content Wrapper (Light Gray Background, Full Height) */}
-      <div style={{ 
-        backgroundColor: "#f5f5f5", 
-        minHeight: "100vh", 
-        paddingBottom: "6rem" 
-      }}>
         <div className="container my-5 pb-5">
           <div className="text-center mb-5">
             <h1 className="fw-bold" style={{ color: "#510e6f" }}>
@@ -135,7 +129,6 @@ const Policies = () => {
             ))}
           </div>
         </div>
-      </div>
     </>
   );
 };
