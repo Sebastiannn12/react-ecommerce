@@ -6,7 +6,7 @@ const Sidebar = ({ onCategorySelect, activeCategory }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("https://react-ecommerce-backend-x3rr.onrender.com/api/categories")
+        const response = await fetch("https://react-ecommerce-backend-x3rr.onrender.com/api/categories");
         const data = await response.json();
         setCategories(data);
       } catch (error) {
