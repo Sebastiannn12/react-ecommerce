@@ -1,30 +1,43 @@
-import React, { useState, useEffect } from 'react'; // 1. Added imports for State and Effect
+import React, { useState, useEffect } from "react";
 
-const Sidebar = () => {
-  // Task 5.1: Store the fetched categories in state
-  const [categories, setCategories] = useState([]);
+const Sidebar = ({ onCategorySelect, activeCategory }) => {
+  const [categories, setCategories] = useState(["All"]);
 
-  // Task 4.3: Fetch categories from the backend API
   useEffect(() => {
-    fetch("http://localhost:5000/api/categories")
-      .then((res) => res.json())
-      .then((data) => {
-        setCategories(data); 
-      })
-      .catch((error) => console.error("Error fetching categories:", error));
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/categories");
+        const data = await response.json();
+        setCategories(data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchCategories();
   }, []);
 
   return (
-    <aside className="bg-light p-3 border rounded">
-      <h5>Categories</h5>
-      <ul className="list-group">
-        {categories.map((category, index) => (
-          <li key={index} className="list-group-item list-group-item-action">
-            {category}
-          </li>
-        ))}
-      </ul>
-    </aside>
+    <div className="list-group list-group-flush">
+      {categories.map((cat) => (
+        <button
+          key={cat}
+          className={`list-group-item list-group-item-action border-0 rounded mb-1 ${
+            activeCategory === cat ? "active text-white" : "text-dark"
+          }`}
+          onClick={() => onCategorySelect(cat)}
+          style={{
+            fontSize: "0.9rem",
+            transition: "0.2s",
+           
+            backgroundColor: activeCategory === cat ? "#542abf" : "transparent",
+            borderColor: activeCategory === cat ? "#000000" : "transparent",
+          }}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
   );
 };
 

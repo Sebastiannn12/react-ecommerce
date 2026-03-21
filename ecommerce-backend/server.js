@@ -1,43 +1,38 @@
-
-
-// Import required packages
 const express = require("express");
 const cors = require("cors");
-
-// Import product data from the data folder
 const products = require("./data/products");
 
-// Create an Express application
-const app = express( );
+const app = express();
 
-// Enable CORS so React can access this backend
 app.use(cors());
+app.use(express.json());
 
-// Middleware to allow JSON request bodies
-app.use(express. json( ));
-
-/*
-API Endpoint: GET /api/products
-Purpose: Return all products as JSON
-*/
 app.get("/api/products", (req, res) => {
-res. json(products); // Send product array back to the client
+  res.json(products);
 });
 
-/*
-Root Route: Just to confirm the server works
-*/
+app.get("/api/categories", (req, res) => {
+  // Extract unique categories, filter out nulls, and sort alphabetically
+  const uniqueCategories = [
+    ...new Set(products.map((p) => p.category).filter(Boolean)),
+  ].sort((a, b) => a.localeCompare(b));
+  
+  res.json(["All", ...uniqueCategories]);
+});
+
+app.get("/api/products/:id", (req, res) => {
+  const product = products.find((p) => p.id === parseInt(req.params.id));
+  if (product) {
+    res.json(product);
+  } else {
+    res.status(404).json({ message: "Product not found" });
+  }
+});
+
 app.get("/", (req, res) => {
-res. send("E-Commerce Product API is running ... ");
+  res.send("Fifty-Glaze Gaming API is running...");
 });
 
-// Start server on port 5000
 app.listen(5000, () => {
-console. log("Backend server running at http://localhost:5000");
-});
-
-app.get('/api/categories', (req, res) => {
-  // Use Set to get unique categories and Filter to remove any undefined values
-  const categories = [...new Set(products.map(p => p.category).filter(Boolean))];
-  res.json(categories);
+  console.log("Backend server running at http://localhost:5000");
 });

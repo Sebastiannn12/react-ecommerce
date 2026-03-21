@@ -1,54 +1,75 @@
 const products = [
   {
     id: 1,
-    name: "Running Shoes",
-    image: "https://via.placeholder.com/300x200",
-    price: 1200,
-    oldPrice: 1500, // Fixed: Standardized to camelCase
+    name: "Gaming Laptop",
+    image: "/images/product1.jpg",
+    price: 63000,
+    oldPrice: 70000,
     rating: 4,
-    discount: 20,
-    category: "Clothing" // Added category
+    discount: 15,
+    category: "Electronics"
   },
   {
     id: 2,
-    name: "Backpack",
-    image: "https://via.placeholder.com/300x200",
-    price: 900,
-    oldPrice: 1100, // Fixed: was 'oldprice'
+    name: "Wireless Headphones",
+    image: "/images/product2.jpg",
+    price: 799,
+    oldPrice: 1000,
     rating: 5,
-    discount: 15,
-    category: "Accessories" // Added category
+    discount: 20,
+    category: "Accessories"
   },
   {
     id: 3,
-    name: "Smart Watch",
-    image: "https://via.placeholder.com/300x200",
-    price: 2500,
-    oldPrice: 3000, // Fixed: was 'oldprice'
-    rating: 3,
-    discount: 10,
-    category: "Electronics" // Added category
+    name: "Gaming Keyboard",
+    image: "/images/product3.jpg",
+    price: 999,
+    oldPrice: 1499,
+    rating: 4,
+    discount: 40,
+    category: "Accessories"
   },
   {
     id: 4,
-    name: "Wireless Headphones",
-    image: "https://via.placeholder.com/300x200",
-    price: 1800,
-    oldPrice: 2200,
+    name: "Wireless Earphones",
+    image: "/images/product4.jpg",
+    price: 349,
+    oldPrice: 599,
     rating: 4,
-    discount: 18,
-    category: "Electronics" // Added category
+    discount: 30,
+    category: "Accessories"
   },
   {
     id: 5,
-    name: "Laptop Bag",
-    image: "https://via.placeholder.com/300x200",
-    price: 1400,
-    oldPrice: 1700,
-    rating: 5,
-    discount: 12,
-    category: "Books" // Added category
+    name: "Wired Gaming Mouse",
+    image: "/images/product5.jpg",
+    price: 549,
+    oldPrice: 799,
+    rating: 4,
+    discount: 33,
+    category: "Accessories"
   },
+  {
+    id: 6,
+    name: "Wireless Gaming Mouse",
+    image: "/images/product6.jpg",
+    price: 839,
+    oldPrice: 1000,
+    rating: 5,
+    discount: 24,
+    category: "Accessories"
+  },
+  {
+    id: 7,
+    name: "Monitor",
+    image: "/images/product7.jpg",
+    price: 2209,
+    oldPrice: 3000,
+    rating: 5,
+    discount: 40,
+    category: "Electronics"
+  },
+  
 ];
 
 module.exports = products;

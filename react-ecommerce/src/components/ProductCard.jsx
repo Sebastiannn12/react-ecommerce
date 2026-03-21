@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { CartContext } from "../context/cartContext";
+import { Link } from "react-router-dom"; // Added Link import
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useContext(CartContext);
 
-  // Define the custom button style based on your header palette
   const buttonStyle = {
     background: "linear-gradient(90deg, #52309b 0%, #52309b 100%)",
     border: "none",
@@ -14,7 +14,10 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-   <div className="card h-100 shadow-sm" style={{ border: '1px solid #e0e0e0', borderRadius: '8px' }}>
+    <div
+      className="card h-100 shadow-sm"
+      style={{ border: "1px solid #e0e0e0", borderRadius: "8px" }}
+    >
       {/* Image wrapper for zoom and badge */}
       <div
         className="product-img-wrapper"
@@ -39,21 +42,31 @@ const ProductCard = ({ product }) => {
             -{product.discount}%
           </div>
         )}
-        <img
-          src={product.image}
-          className="card-img-top product-img"
-          alt={product.name}
-          style={{ height: "200px", objectFit: "contain", padding: "15px", }}
-        />
+        {/* Added Link around the image */}
+        <Link to={`/product/${product.id}`}>
+          <img
+            src={product.image}
+            className="card-img-top product-img"
+            alt={product.name}
+            style={{ height: "200px", objectFit: "contain", padding: "15px" }}
+          />
+        </Link>
       </div>
 
       <div className="card-body d-flex flex-column text-center">
-        <h6
-          className="card-title text-dark mb-2"
-          style={{ fontSize: "0.95rem", height: "2.5rem", overflow: "hidden" }}
-        >
-          {product.name}
-        </h6>
+        {/* Added Link around the title */}
+        <Link to={`/product/${product.id}`} className="text-decoration-none">
+          <h6
+            className="card-title text-dark mb-2"
+            style={{
+              fontSize: "0.95rem",
+              height: "2.5rem",
+              overflow: "hidden",
+            }}
+          >
+            {product.name}
+          </h6>
+        </Link>
 
         {/* Star rating */}
         <div className="mb-2 text-warning" style={{ fontSize: "0.85rem" }}>

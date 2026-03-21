@@ -4,29 +4,15 @@ import { CartContext } from "../context/cartContext";
 
 const Navbar = () => {
   const { cart } = useContext(CartContext);
-  const cartCount = cart.reduce((qty, item) => qty + item.qty, 0);
-
+  const totalQty = cart.reduce((qty, item) => qty + item.qty, 0);
   const customColor = "#291934";
-
-  const navStyle = {
-    backgroundColor: customColor,
-    paddingTop: "12px",
-    paddingBottom: "12px",
-    transition: "background-color 0.3s ease",
-  };
-
-  const navLinkStyle = ({ isActive }) => ({
-    color: isActive ? "#b4becd" : "white",
-    fontWeight: "bold",
-    textDecoration: "none",
-  });
 
   return (
     <>
       {/* DESKTOP NAVBAR */}
       <nav
         className="navbar navbar-expand-lg navbar-dark shadow-sm d-none d-lg-block"
-        style={navStyle}
+        style={{ backgroundColor: customColor, padding: "12px 0" }}
       >
         <div className="container">
           <Link
@@ -40,46 +26,29 @@ const Navbar = () => {
               height="50"
               className="me-2"
             />
-            <span className="fs-4 tracking-tight">Fifty-Glaze</span>
+            <span>Fifty-Glaze</span>
           </Link>
 
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <div className="collapse navbar-collapse">
+            <ul className="navbar-nav me-auto">
               <li className="nav-item">
-                <NavLink className="nav-link" style={navLinkStyle} to="/">
+                <NavLink className="nav-link" to="/">
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink
-                  className="nav-link"
-                  style={navLinkStyle}
-                  to="/products"
-                >
+                <NavLink className="nav-link" to="/products">
                   Products
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" style={navLinkStyle} to="/about">
+                <NavLink className="nav-link" to="/about">
                   About
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink
-                  className="nav-link"
-                  style={navLinkStyle}
-                  to="/contact"
-                >
+                <NavLink className="nav-link" to="/contact">
                   Contact
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className="nav-link"
-                  style={navLinkStyle}
-                  to="/policies"
-                >
-                  Policies
                 </NavLink>
               </li>
             </ul>
@@ -89,9 +58,9 @@ const Navbar = () => {
               className="btn btn-outline-light position-relative"
             >
               Cart 🛒
-              {cartCount > 0 && (
+              {totalQty > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  {cartCount}
+                  {totalQty}
                 </span>
               )}
             </Link>
@@ -99,66 +68,92 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* MOBILE BOTTOM NAVBAR - Now also uses your customColor */}
+      {/* MOBILE BOTTOM NAVIGATION - GRAY ACTIVE STATE [cite: 153-231] */}
       <nav
-        className="navbar fixed-bottom d-lg-none shadow-lg border-top border-secondary"
-        style={navStyle}
+        className="navbar fixed-bottom d-lg-none shadow-lg"
+        style={{
+          backgroundColor: customColor,
+          borderTop: "1px solid rgba(255,255,255,0.1)",
+        }}
       >
         <div className="container-fluid d-flex justify-content-around text-center py-2">
           <NavLink
             to="/"
             end
-            className="text-decoration-none"
-            style={navLinkStyle}
+            className={({ isActive }) =>
+              isActive
+                ? "text-secondary text-decoration-none"
+                : "text-white text-decoration-none"
+            }
           >
-            <i className="fa fa-home fs-5"></i>
-            <div style={{ fontSize: "12px" }}>Home</div>
+            <div>
+              <i className="fa fa-home fs-5"></i>
+              <div style={{ fontSize: "12px" }}>Home</div>
+            </div>
           </NavLink>
 
           <NavLink
             to="/products"
-            className="text-decoration-none"
-            style={navLinkStyle}
+            className={({ isActive }) =>
+              isActive
+                ? "text-secondary text-decoration-none"
+                : "text-white text-decoration-none"
+            }
           >
-            <i className="fa fa-box fs-5"></i>
-            <div style={{ fontSize: "12px" }}>Products</div>
+            <div>
+              <i className="fa fa-th-large fs-5"></i>
+              <div style={{ fontSize: "12px" }}>Shop</div>
+            </div>
           </NavLink>
 
           <NavLink
             to="/cart"
-            className="text-decoration-none position-relative"
-            style={navLinkStyle}
+            className={({ isActive }) =>
+              isActive
+                ? "text-secondary text-decoration-none position-relative"
+                : "text-white text-decoration-none position-relative"
+            }
           >
             <div className="position-relative">
               <i className="fa fa-shopping-cart fs-5"></i>
-              {cartCount > 0 && (
+              {totalQty > 0 && (
                 <span
                   className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                   style={{ fontSize: "10px" }}
                 >
-                  {cartCount}
+                  {totalQty}
                 </span>
               )}
+              <div style={{ fontSize: "12px" }}>Cart</div>
             </div>
-            <div style={{ fontSize: "12px" }}>Cart</div>
           </NavLink>
 
           <NavLink
             to="/about"
-            className="text-decoration-none"
-            style={navLinkStyle}
+            className={({ isActive }) =>
+              isActive
+                ? "text-secondary text-decoration-none"
+                : "text-white text-decoration-none"
+            }
           >
-            <i className="fa fa-info-circle fs-5"></i>
-            <div style={{ fontSize: "12px" }}>About</div>
+            <div>
+              <i className="fa fa-info-circle fs-5"></i>
+              <div style={{ fontSize: "12px" }}>About</div>
+            </div>
           </NavLink>
 
           <NavLink
             to="/contact"
-            className="text-decoration-none"
-            style={navLinkStyle}
+            className={({ isActive }) =>
+              isActive
+                ? "text-secondary text-decoration-none"
+                : "text-white text-decoration-none"
+            }
           >
-            <i className="fa fa-phone fs-5"></i>
-            <div style={{ fontSize: "12px" }}>Contact</div>
+            <div>
+              <i className="fa fa-phone fs-5"></i>
+              <div style={{ fontSize: "12px" }}>Contact</div>
+            </div>
           </NavLink>
         </div>
       </nav>
