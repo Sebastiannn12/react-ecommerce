@@ -20,7 +20,7 @@ const ProductList = () => {
     const fetchData = async () => {
       try {
         // This fetches the data you just added to product.js via your API
-        const response = await fetch("https://react-ecommerce-backend-x3rr.onrender.com");
+        const response = await fetch("https://react-ecommerce-backend-x3rr.onrender.com/api/products");
         const data = await response.json();
         setDbProducts(data);
         setTimeout(() => setLoading(false), 1000);

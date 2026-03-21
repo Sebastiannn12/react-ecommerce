@@ -88,10 +88,9 @@ const SingleProduct = () => {
 
   useEffect(() => {
     if (product) {
-      // --- RECENTLY VIEWED SAVING LOGIC ---
       const history = JSON.parse(localStorage.getItem("recentlyViewed")) || [];
 
-      // Remove if duplicate, then add to front
+      
       const filtered = history.filter((item) => item.id !== product.id);
       const newHistory = [product, ...filtered].slice(0, 5); // Keep top 5
 
