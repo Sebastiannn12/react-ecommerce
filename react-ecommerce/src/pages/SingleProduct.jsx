@@ -80,6 +80,37 @@ const products = [
     image: "/images/product7.jpg",
     description: "4K UHD Monitor with 144Hz refresh rate.",
   },
+    {
+    id: 8,
+    name: "Gaming Laptop RUG",
+    image: "/images/product8.jpg",
+    price: 72989,
+    oldPrice: 86700,
+    rating: 5,
+    discount: 30,
+    category: "Electronics"
+  },
+  {
+    id: 9,
+    name: "Royal Cladge Keyboard",
+    image: "/images/product9.jpg",
+    price: 1240,
+    oldPrice: 1754,
+    rating: 5,
+    discount: 27,
+    category: "Accessories"
+  },
+  {
+    id: 10,
+    name: "ROG Earbuds",
+    image: "/images/product10.jpg",
+    price: 4450,
+    oldPrice: 77590,
+    rating: 4,
+    discount: 37,
+    category: "Accessories"
+  }
+  
 ];
 
 const SingleProduct = () => {
