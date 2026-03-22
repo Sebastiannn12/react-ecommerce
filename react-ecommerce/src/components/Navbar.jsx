@@ -6,7 +6,7 @@ const Navbar = () => {
   const { cart } = useContext(CartContext);
   const totalQty = cart.reduce((qty, item) => qty + item.qty, 0);
   const customColor = "#291934";
-  const accentColor = "#61367d"; 
+  const accentColor = "#5a3274"; 
 
   return (
     <>
