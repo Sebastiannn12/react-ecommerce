@@ -18,7 +18,7 @@ const Navbar = () => {
         <span className="text-warning">GLAZE15</span>
       </div>
 
-      {/* --- DESKTOP NAVBAR (Sticky) --- */}
+      {/* --- DESKTOP NAVBAR --- */}
       <nav
         className="navbar navbar-expand-lg navbar-dark shadow-sm d-none d-lg-block sticky-top"
         style={{
