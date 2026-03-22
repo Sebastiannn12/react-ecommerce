@@ -43,11 +43,10 @@ const allProducts = [
 
 const Home = () => {
   const darkBg = "#1e122b";
-  const BACKEND_URL = "http://localhost:5000"; 
 
   return (
     <>
-      {/* 1. Top Separator Bar (Visible on ALL devices) */}
+      {/* 1. Top Separator Bar */}
       <div
         style={{
           backgroundColor: darkBg,
@@ -57,7 +56,7 @@ const Home = () => {
         }}
       ></div>
 
-      {/* 2. Mobile-Only Header (Logo + Name) */}
+      {/* 2. Mobile-Only Header */}
       <div
         className="d-lg-none"
         style={{
@@ -89,8 +88,14 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Main Content Wrapper */}
-      <div style={{ backgroundColor: "#ffffff", paddingBottom: "6rem", flexGrow: 1 }}>
+      {/* Main Content Wrapper - Pure White Background */}
+      <div
+        style={{
+          backgroundColor: "#ffffff",
+          paddingBottom: "6rem",
+          flexGrow: 1,
+        }}
+      >
         <div className="container mt-4">
           {/* Carousel Section */}
           <div
@@ -98,7 +103,6 @@ const Home = () => {
             className="carousel slide mb-5 shadow rounded-4 overflow-hidden"
             data-bs-ride="carousel"
           >
-            {/* Indicators */}
             <div className="carousel-indicators">
               <button
                 type="button"
@@ -145,7 +149,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Navigation Buttons */}
             <button
               className="carousel-control-prev"
               type="button"
