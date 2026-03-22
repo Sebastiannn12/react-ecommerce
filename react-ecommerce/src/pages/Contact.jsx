@@ -41,10 +41,10 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Main Content Wrapper */}
+      {/* Content Wrapper */}
       <div
         style={{
-          backgroundColor: "#ffffff",
+          backgroundColor: "#f5f5f5",
           paddingBottom: "6rem",
           flexGrow: 1,
         }}
@@ -91,7 +91,9 @@ const Contact = () => {
               </div>
             </div>
 
+          
             <div className="col-lg-7">
+              {/* Dark Card Background */}
               <div
                 className="card border-0 shadow-lg p-4 rounded-4"
                 style={{ backgroundColor: "#121212" }}
@@ -174,13 +176,14 @@ const Contact = () => {
                       rows="5"
                       placeholder="How can we help you?"
                       style={{
-                        backgroundColor: "#000000",
+                        backgroundColor: "#ffffff",
                         borderColor: "#333",
-                        color: "#ffffff",
+                        color: "#000000",
                       }}
                     ></textarea>
                   </div>
 
+                  {/* Purple Button (Unchanged) */}
                   <button
                     type="submit"
                     className="btn w-100 py-2 fw-bold text-white"
