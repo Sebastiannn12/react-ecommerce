@@ -90,7 +90,7 @@ const Home = () => {
       </div>
 
       {/* Main Content Wrapper */}
-      <div style={{ backgroundColor: "#f5f5f5", paddingBottom: "6rem", flexGrow: 1 }}>
+      <div style={{ backgroundColor: "#ffffff", paddingBottom: "6rem", flexGrow: 1 }}>
         <div className="container mt-4">
           {/* Carousel Section */}
           <div

@@ -143,7 +143,7 @@ const SingleProduct = () => {
       <div className="container py-5 text-center">
         <div
           style={{
-            backgroundColor: "#f5f5f5",
+            backgroundColor: "#ffffff",
             paddingTop: "60px",
             flexGrow: 1,
           }}

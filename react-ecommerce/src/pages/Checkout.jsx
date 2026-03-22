@@ -77,7 +77,7 @@ const Checkout = () => {
         {/* Content Wrapper */}
         <div
           style={{
-            backgroundColor: "#f5f5f5",
+            backgroundColor: "#ffffff",
             minHeight: "100vh",
             paddingBottom: "6rem",
           }}

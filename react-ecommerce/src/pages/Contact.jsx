@@ -44,7 +44,7 @@ const Contact = () => {
       {/* Main Content Wrapper */}
       <div
         style={{
-          backgroundColor: "#f5f5f5",
+          backgroundColor: "#ffffff",
           paddingBottom: "6rem",
           flexGrow: 1,
         }}
