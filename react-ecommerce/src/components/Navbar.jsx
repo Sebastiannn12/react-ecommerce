@@ -14,7 +14,7 @@ const Navbar = () => {
         className="d-none d-lg-block text-center py-2 text-white fw-bold small"
         style={{ backgroundColor: accentColor }}
       >
-        🎉 Grand Opening Sale! Get 15% Off Your First Order with Code:{" "}
+        🎉 Friday Sale! Get 15% Off Your First Order with Code:{" "}
         <span className="text-warning">GLAZE15</span>
       </div>
 
