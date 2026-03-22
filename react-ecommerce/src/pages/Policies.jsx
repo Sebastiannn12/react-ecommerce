@@ -1,7 +1,7 @@
 import React from "react";
 
 const Policies = () => {
-  const darkBg = "#1e122b"; // Your brand color
+  const darkBg = "#1e122b";
 
   const policySections = [
     {
@@ -51,40 +51,55 @@ const Policies = () => {
   return (
     <>
       {/* 1. Top Separator Bar (Visible on ALL devices) */}
-      <div style={{ 
-        backgroundColor: darkBg, 
-        height: "10px", 
-        width: "100%",
-        flexShrink: 0 
-      }}></div>
+      <div
+        style={{
+          backgroundColor: darkBg,
+          height: "10px",
+          width: "100%",
+          flexShrink: 0,
+        }}
+      ></div>
 
       {/* 2. Mobile-Only Header (Logo + Name) */}
-      <div className="d-lg-none" style={{ 
-        backgroundColor: darkBg,
-        padding: "0.8rem 1rem",
-        textAlign: "center",
-        borderBottom: "1px solid rgba(255,255,255,0.1)",
-        boxShadow: "0 2px 5px rgba(0,0,0,0.2)"
-      }}>
+      <div
+        className="d-lg-none"
+        style={{
+          backgroundColor: darkBg,
+          padding: "0.8rem 1rem",
+          textAlign: "center",
+          borderBottom: "1px solid rgba(255,255,255,0.1)",
+          boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+        }}
+      >
         <div className="d-flex align-items-center justify-content-center gap-2">
-          <img 
-            src="/images/pclogo.png" 
-            alt="Fifty-Glaze Logo" 
-            width="32" 
-            height="32" 
+          <img
+            src="/images/pclogo.png"
+            alt="Fifty-Glaze Logo"
+            width="32"
+            height="32"
             className="object-fit-contain"
           />
-          <span style={{ 
-            color: "#ffffff", 
-            fontSize: "1.1rem", 
-            fontWeight: "700",
-            letterSpacing: "0.5px"
-          }}>
+          <span
+            style={{
+              color: "#ffffff",
+              fontSize: "1.1rem",
+              fontWeight: "700",
+              letterSpacing: "0.5px",
+            }}
+          >
             Fifty-Glaze
           </span>
         </div>
       </div>
 
+      {/* Main Content Wrapper */}
+      <div
+        style={{
+          backgroundColor: "#f5f5f5",
+          paddingBottom: "6rem",
+          flexGrow: 1,
+        }}
+      >
         <div className="container my-5 pb-5">
           <div className="text-center mb-5">
             <h1 className="fw-bold" style={{ color: "#510e6f" }}>
@@ -129,6 +144,7 @@ const Policies = () => {
             ))}
           </div>
         </div>
+      </div>
     </>
   );
 };

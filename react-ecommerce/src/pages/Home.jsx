@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 
-// Use simple strings for images in the public folder
 const allProducts = [
   {
     id: 1,
@@ -89,6 +88,9 @@ const Home = () => {
           </span>
         </div>
       </div>
+
+      {/* Main Content Wrapper */}
+      <div style={{ backgroundColor: "#f5f5f5", paddingBottom: "6rem", flexGrow: 1 }}>
         <div className="container mt-4">
           {/* Carousel Section */}
           <div
@@ -197,6 +199,7 @@ const Home = () => {
             ))}
           </div>
         </div>
+      </div>
     </>
   );
 };

@@ -143,9 +143,9 @@ const SingleProduct = () => {
       <div className="container py-5 text-center">
         <div
           style={{
-            minHeight: "100vh",
             backgroundColor: "#f5f5f5",
             paddingTop: "60px",
+            flexGrow: 1,
           }}
         >
           Product not found.
@@ -193,8 +193,8 @@ const SingleProduct = () => {
       <div
         style={{
           backgroundColor: "#f5f5f5",
-          minHeight: "100vh",
           paddingBottom: "6rem",
+          flexGrow: 1,
         }}
       >
         <div className="container py-5">
