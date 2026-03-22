@@ -92,7 +92,6 @@ const Contact = () => {
             </div>
 
             <div className="col-lg-7">
-              {/* Dark Card Background */}
               <div
                 className="card border-0 shadow-lg p-4 rounded-4"
                 style={{ backgroundColor: "#121212" }}
@@ -118,9 +117,9 @@ const Contact = () => {
                       className="form-control"
                       placeholder="John Doe"
                       style={{
-                        backgroundColor: "#1e1e1e",
+                        backgroundColor: "#ffffff",
                         borderColor: "#333",
-                        color: "#ffffff",
+                        color: "#000000",
                       }}
                     />
                   </div>
@@ -137,9 +136,9 @@ const Contact = () => {
                       className="form-control"
                       placeholder="john@example.com"
                       style={{
-                        backgroundColor: "#1e1e1e",
+                        backgroundColor: "#ffffff",
                         borderColor: "#333",
-                        color: "#ffffff",
+                        color: "#000000",
                       }}
                     />
                   </div>
@@ -156,9 +155,9 @@ const Contact = () => {
                       className="form-control"
                       placeholder="Order Inquiry"
                       style={{
-                        backgroundColor: "#1e1e1e",
+                        backgroundColor: "#ffffff",
                         borderColor: "#333",
-                        color: "#ffffff",
+                        color: "#000000",
                       }}
                     />
                   </div>
@@ -175,7 +174,7 @@ const Contact = () => {
                       rows="5"
                       placeholder="How can we help you?"
                       style={{
-                        backgroundColor: "#1e1e1e",
+                        backgroundColor: "#000000",
                         borderColor: "#333",
                         color: "#ffffff",
                       }}
