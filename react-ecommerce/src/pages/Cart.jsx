@@ -58,7 +58,7 @@ const Cart = () => {
 
       {/* 3. Main Content Wrapper (Light Gray Background, Full Height) */}
       <div style={{ 
-        backgroundColor: "#f5f5f5", 
+        backgroundColor: "#ffffff", 
         minHeight: "100vh", 
         paddingBottom: "6rem" /* Extra padding for mobile bottom nav */
       }}>
