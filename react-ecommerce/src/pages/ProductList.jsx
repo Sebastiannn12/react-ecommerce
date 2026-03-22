@@ -80,7 +80,7 @@ const ProductList = () => {
     <>
       {/* Top Separator Bar */}
       <div
-        style={{ backgroundColor: darkBg, height: "10px", width: "100%" }}
+        style={{ backgroundColor: darkBg, height: "15px", width: "100%" }}
       ></div>
 
       {/* Mobile Header */}
