@@ -20,6 +20,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // ✅ FIXED: Removed trailing spaces in URL
         const API_URL =
           window.location.hostname === "localhost"
             ? "http://localhost:5000/api/products"
@@ -80,17 +81,18 @@ const ProductList = () => {
     <>
       {/* Top Separator Bar */}
       <div
-        style={{ backgroundColor: darkBg, height: "15px", width: "100%" }}
+        style={{ backgroundColor: darkBg, height: "10px", width: "100%" }}
       ></div>
 
-      {/* Mobile Header */}
+      {/* Mobile Header - ✅ INCREASED PADDING HERE (Mobile Only) */}
       <div
         className="d-lg-none"
         style={{
           backgroundColor: darkBg,
-          padding: "0.8rem 1rem",
+          padding: "1.2rem 1rem", // Changed from 0.8rem to 1.2rem for more bottom space
           textAlign: "center",
           borderBottom: "1px solid rgba(255,255,255,0.1)",
+          boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
         }}
       >
         <div className="d-flex align-items-center justify-content-center gap-2">
@@ -102,17 +104,23 @@ const ProductList = () => {
             className="object-fit-contain"
           />
           <span
-            style={{ color: "#ffffff", fontSize: "1.1rem", fontWeight: "700" }}
+            style={{
+              color: "#ffffff",
+              fontSize: "1.1rem",
+              fontWeight: "700",
+              letterSpacing: "0.5px",
+            }}
           >
             Fifty-Glaze
           </span>
         </div>
       </div>
 
-      {/* Main Content Wrapper */}
+      {/* Main Content Wrapper - ✅ INCREASED PADDING TOP/BOTTOM HERE (Desktop & Mobile) */}
       <div
         style={{
           backgroundColor: "#ffffff",
+          paddingTop: "2rem",    // ✅ ADDED: Extra space below navbar on desktop
           paddingBottom: "6rem",
           flexGrow: 1,
         }}
