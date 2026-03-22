@@ -8,7 +8,7 @@ const ProductList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   
-  // ✅ FIX 1: Increased max price to 100,000 so the new laptop (72,989) shows up!
+ 
   const [maxPrice, setMaxPrice] = useState(100000); 
   
   const [minRating, setMinRating] = useState(0);
@@ -21,12 +21,15 @@ const ProductList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // ✅ FIX 2: Changed to Localhost so you see your new product immediately
-        const response = await fetch("http://localhost:5000/api/products");
+         const API_URL = window.location.hostname === 'localhost' 
+        ? 'http://localhost:5000/api/products' 
+        : 'https://react-ecommerce-backend-x3rr.onrender.com/api/products';
+
+        const response = await fetch(API_URL);
         
         const data = await response.json();
         
-        // ✅ FIX 3: Moved console.log AFTER data is defined
+
         console.log("Products received:", data);
         console.log("Count:", data.length);
 
