@@ -5,14 +5,10 @@ const About = () => {
 
   return (
     <>
-      {/* 1. Top Separator Bar */}
       <div
-        style={{ backgroundColor: darkBg, 
-           height: "10px",
-           width: "100%" }}
+        style={{ backgroundColor: darkBg, height: "10px", width: "100%" }}
       ></div>
 
-      {/* 2. Mobile Header */}
       <div
         className="d-lg-none"
         style={{
@@ -44,6 +40,13 @@ const About = () => {
         </div>
       </div>
 
+      <div
+        style={{
+          backgroundColor: "#f5f5f5",
+          paddingBottom: "6rem",
+          flexGrow: 1,
+        }}
+      >
         <div className="container mt-5 pb-5">
           <div className="row align-items-center">
             <div className="col-lg-7">
@@ -110,6 +113,7 @@ const About = () => {
             </div>
           </div>
         </div>
+      </div>
     </>
   );
 };

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 
 const Checkout = () => {
-  const darkBg = "#1e122b"; // Your brand color
+  const darkBg = "#1e122b";   
   const { cart, clearCart } = useContext(CartContext);
 
   const [form, setForm] = useState({
