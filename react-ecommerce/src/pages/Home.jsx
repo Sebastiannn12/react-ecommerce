@@ -44,6 +44,7 @@ const allProducts = [
 
 const Home = () => {
   const darkBg = "#1e122b";
+  const BACKEND_URL = "http://localhost:5000"; 
 
   return (
     <>
