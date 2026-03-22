@@ -91,7 +91,7 @@ const Contact = () => {
               </div>
             </div>
 
-          
+            {/* Right Side: Contact Form (DARK MODE) */}
             <div className="col-lg-7">
               {/* Dark Card Background */}
               <div
@@ -171,6 +171,7 @@ const Contact = () => {
                     >
                       Message
                     </label>
+
                     <textarea
                       className="form-control"
                       rows="5"
