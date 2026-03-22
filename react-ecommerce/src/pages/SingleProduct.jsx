@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
 const products = [
@@ -80,43 +80,45 @@ const products = [
     image: "/images/product7.jpg",
     description: "4K UHD Monitor with 144Hz refresh rate.",
   },
-    {
+  {
     id: 8,
     name: "Gaming Laptop RUG",
-    image: "/images/product8.jpg",
+    category: "Electronics",
     price: 72989,
     oldPrice: 86700,
-    rating: 5,
     discount: 30,
-    category: "Electronics"
+    rating: 5,
+    image: "/images/product8.jpg",
+    description:
+      "Ultimate gaming performance with the new RUG series processor.",
   },
   {
     id: 9,
     name: "Royal Cladge Keyboard",
-    image: "/images/product9.jpg",
+    category: "Accessories",
     price: 1240,
     oldPrice: 1754,
-    rating: 5,
     discount: 27,
-    category: "Accessories"
+    rating: 5,
+    image: "/images/product9.jpg",
+    description: "Premium mechanical feel with royal aesthetic design.",
   },
   {
     id: 10,
     name: "ROG Earbuds",
-    image: "/images/product10.jpg",
+    category: "Accessories",
     price: 4450,
     oldPrice: 77590,
-    rating: 4,
     discount: 37,
-    category: "Accessories"
-  }
-  
+    rating: 4,
+    image: "/images/product10.jpg",
+    description: "Immersive sound quality designed for competitive gaming.",
+  },
 ];
 
 const SingleProduct = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
-  const { addToCart } = useContext(CartContext); // Access cart function
+  const { addToCart } = useContext(CartContext);
 
   const product = products.find((p) => p.id === parseInt(id));
 
@@ -152,6 +154,7 @@ const SingleProduct = () => {
     );
 
   const darkBg = "#1e122b";
+  const brandViolet = "#693482";
 
   return (
     <>
@@ -210,9 +213,19 @@ const SingleProduct = () => {
                 />
               </div>
               <div className="col-md-6 p-4 p-md-5 d-flex flex-column justify-content-center">
-                <span className="badge bg-primary mb-2 w-fit">
+                {/* ✅ CHANGED: Custom Violet Badge instead of Blue */}
+                <span
+                  className="badge mb-3 px-3 py-2"
+                  style={{
+                    backgroundColor: brandViolet,
+                    color: "#ffffff",
+                    fontSize: "0.9rem",
+                    alignSelf: "flex-start",
+                  }}
+                >
                   {product.category}
                 </span>
+
                 <h1 className="fw-bold mb-3">{product.name}</h1>
 
                 <div className="d-flex align-items-center mb-3 text-warning">
