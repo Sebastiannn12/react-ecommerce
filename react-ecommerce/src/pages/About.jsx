@@ -58,12 +58,6 @@ const About = () => {
                 ensuring that premium tech and accessories are accessible to
                 everyone.
               </p>
-              <p className="text-muted">
-                This website is a modern e-commerce experience built using{" "}
-                <b>React</b>,<b> Vite</b>, <b>Bootstrap</b>, and{" "}
-                <b>FontAwesome</b>. We focus on speed, security, and a seamless
-                user experience from browsing to checkout.
-              </p>
 
               <div className="row mt-4">
                 <div className="col-md-6 mb-3">
