@@ -6,16 +6,15 @@ const Navbar = () => {
   const { cart } = useContext(CartContext);
   const totalQty = cart.reduce((qty, item) => qty + item.qty, 0);
   const customColor = "#291934";
-  const accentColor = "#510e6f"; // Your brand violet
+  const accentColor = "#572667"; 
 
   return (
     <>
-      {/* --- DESKTOP ONLY: PROMOTIONAL TOP BAR --- */}
       <div
         className="d-none d-lg-block text-center py-2 text-white fw-bold small"
-        style={{ backgroundColor: "#762fbe" }}
+        style={{ backgroundColor: accentColor }}
       >
-        🎉 Friday Sale! Get 15% Off Your First Order with Code:{" "}
+        🎉 Grand Opening Sale! Get 15% Off Your First Order with Code:{" "}
         <span className="text-warning">GLAZE15</span>
       </div>
 
