@@ -6,20 +6,33 @@ const Navbar = () => {
   const { cart } = useContext(CartContext);
   const totalQty = cart.reduce((qty, item) => qty + item.qty, 0);
   const customColor = "#291934";
+  const accentColor = "#510e6f"; // Your brand violet
 
   return (
     <>
-      {/* DESKTOP NAVBAR */}
+      {/* --- DESKTOP ONLY: PROMOTIONAL TOP BAR --- */}
+      <div
+        className="d-none d-lg-block text-center py-2 text-white fw-bold small"
+        style={{ backgroundColor: accentColor }}
+      >
+        🎉 Grand Opening Sale! Get 15% Off Your First Order with Code:{" "}
+        <span className="text-warning">GLAZE15</span>
+      </div>
+
+      {/* --- DESKTOP NAVBAR (Sticky) --- */}
       <nav
-        className="navbar navbar-expand-lg navbar-dark shadow-sm d-none d-lg-block"
-        style={{ backgroundColor: customColor, padding: "12px 0" }}
+        className="navbar navbar-expand-lg navbar-dark shadow-sm d-none d-lg-block sticky-top"
+        style={{
+          backgroundColor: customColor,
+          padding: "12px 0",
+          zIndex: 1030, // Ensures it stays on top of carousels/content
+        }}
       >
         <div className="container">
           <Link
             className="navbar-brand d-flex align-items-center fw-bold"
             to="/"
           >
-            {/* UPDATED: Slightly larger logo for better visibility */}
             <img
               src="/images/pclogo.png"
               alt="Logo"
@@ -31,7 +44,7 @@ const Navbar = () => {
           </Link>
 
           <div className="collapse navbar-collapse">
-            <ul className="navbar-nav me-auto">
+            <ul className="navbar-nav me-auto ms-4">
               <li className="nav-item">
                 <NavLink className="nav-link" to="/">
                   Home
@@ -61,7 +74,7 @@ const Navbar = () => {
 
             <Link
               to="/cart"
-              className="btn btn-outline-light position-relative"
+              className="btn btn-outline-light position-relative px-4"
             >
               Cart 🛒
               {totalQty > 0 && (
@@ -74,12 +87,13 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* MOBILE BOTTOM NAVIGATION */}
+      {/* --- MOBILE BOTTOM NAVIGATION (Fixed) --- */}
       <nav
         className="navbar fixed-bottom d-lg-none shadow-lg"
         style={{
           backgroundColor: customColor,
           borderTop: "1px solid rgba(255,255,255,0.1)",
+          zIndex: 1030,
         }}
       >
         <div className="container-fluid d-flex justify-content-around text-center py-2">
@@ -162,6 +176,7 @@ const Navbar = () => {
             </div>
           </NavLink>
 
+          {/* Hidden Policies on mobile bottom nav to save space, or keep if needed */}
           <NavLink
             to="/policies"
             className={({ isActive }) =>
@@ -172,7 +187,7 @@ const Navbar = () => {
           >
             <div>
               <i className="fa fa-file-contract fs-5"></i>
-              <div style={{ fontSize: "12px" }}>Policies</div>
+              <div style={{ fontSize: "12px" }}>Rules</div>
             </div>
           </NavLink>
         </div>
