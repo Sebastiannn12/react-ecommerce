@@ -133,7 +133,7 @@ const ProductList = () => {
                       type="range"
                       className="form-range"
                       min="0"
-                      max="100000" // Updated max range to match state
+                      max="100000" 
                       step="500"
                       value={maxPrice}
                       onChange={(e) => setMaxPrice(Number(e.target.value))}
