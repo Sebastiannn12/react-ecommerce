@@ -6,7 +6,7 @@ const Navbar = () => {
   const { cart } = useContext(CartContext);
   const totalQty = cart.reduce((qty, item) => qty + item.qty, 0);
   const customColor = "#291934";
-  const accentColor = "#572667"; 
+  const accentColor = "#61367d"; 
 
   return (
     <>
@@ -87,6 +87,7 @@ const Navbar = () => {
       </nav>
 
       {/* --- MOBILE BOTTOM NAVIGATION (Fixed) --- */}
+      
       <nav
         className="navbar fixed-bottom d-lg-none shadow-lg"
         style={{
